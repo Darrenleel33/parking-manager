@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import CarCards from './CarCards'
 import CarEditor from './CarEditor'
-import Board from './components/Board'
+import Board from './components/Board.js'
 import Content from './Content'
 import Sidebar from './Sidebar'
 import Row from 'react-bootstrap/Row';
