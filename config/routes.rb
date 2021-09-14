@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :cars, only: [:index, :show, :create, :update, :destroy]
+  resources :prices, only: [:index]
+  resources :tickets, only: [:index, :show, :create, :destroy]
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

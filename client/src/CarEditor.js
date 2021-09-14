@@ -127,7 +127,12 @@ return (
 <Form.Group as={Row} className="mb-3">
     <Col sm={{ span: 10, offset: 2 }}>
       <Button type="submit" variant="warning" onClick={handleSubmit}>Edit this Car</Button>
+      &nbsp;&nbsp;
+      <Button type="submit" variant="secondary" onClick={handleEdit}>Cancel</Button>
     </Col>
+    <Col sm={{ span: 10, offset: 2 }}>
+    </Col>
+    
   </Form.Group>
 </Form>
     
