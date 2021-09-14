@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(version: 2021_09_14_195624) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "phrases", force: :cascade do |t|
-    t.integer "difficulty"
-    t.string "word"
-    t.string "abc"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "prices", force: :cascade do |t|
     t.integer "initial"
     t.integer "hourly"
@@ -48,25 +40,6 @@ ActiveRecord::Schema.define(version: 2021_09_14_195624) do
     t.integer "hours"
     t.integer "days"
     t.boolean "paid"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_phrases", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "phrase_id"
-    t.boolean "complete"
-    t.integer "guess"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "state"
-    t.string "email"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
