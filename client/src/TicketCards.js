@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 import TicketEditor from './TicketEditor'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Col } from 'react-bootstrap';
 
-function TicketCards({id, tickets, date, hours, car_id, paid, days}) {
+function TicketCards({ id, tickets, date, hours, car_id, paid, days}) {
 
 
 
@@ -17,50 +18,38 @@ function TicketCards({id, tickets, date, hours, car_id, paid, days}) {
 // const chargeHourly = 10 + 3*{hours}
 // const chargeDaily = 35
 
-function handleTicketEdit(){
-    
+const style={
+
+float:"left",
+width: '16rem',
+margin: "5px",
+backgroundOpacity:"0.3"
+
 }
 
+
+
+
+
     return (
-     <div >
-     <Card border="dark" style={{ width: '18rem'}} >
+     <Col style={style} >
+      
+     <Card border="dark"  >
         <Card.Header>Parking Receipts #{id} </Card.Header>
         <Card.Body>
             
           <Card.Title>Date: {date} </Card.Title>
           <Card.Text>Number of {hours} hours parked</Card.Text>
           <Card.Text>Number of {days} days parked</Card.Text>
-          <Card.Text>Paid:{paid?"yes":"no"}</Card.Text>
+          <Card.Text>Paid:{paid?"Yes":"No"}</Card.Text>
            
-        <Button variant="outline-success" size="sm" type="submit" onClick={handleTicketEdit}>Edit Details</Button>
-        &nbsp;&nbsp;
+
         <Button variant="outline-danger" size="sm" >Delete (not working)</Button>
     
         </Card.Body>
       </Card>
 
-
-{/* 
-
-            <div >
-                <h4>Parking Receipts # {id} </h4>
-               
-     
-                <h5>Date: {date} </h5>
-                <h5>Car ID# {car_id}</h5>
-                <h5>Number of {hours} hours parked</h5>
-                <h5>Number of {days} days parked</h5>
-                <h5>Paid:{paid?"yes":"no"}</h5>
-                <button onClick={handleTicketEdit}>Edit Ticket</button>
-               
-                <h5>$ {days===0 ? {chargeHourly}  : {chargeDaily} }</h5>
-           
-               
-                <button >Edit Ticket</button>
-                <button onClick={changePaid()}>{paid? "Mark as Unpaid": "Mark as Paid"}</button>
-            </div> */}
-    
-    </div>
+    </Col>
     )
 }
 

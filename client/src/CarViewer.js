@@ -23,7 +23,7 @@ const style={
   backgroundPosition: "center",
   position:"absolute",
   height: "400px",
-  width: "390px",
+  width: "420px",
   top: "20px",
   fontFamily:"sinkin sans",
   fontSize: "25px"
@@ -58,7 +58,7 @@ const bodyStyle={
           <Card.Text>Vehicle Make: {displayCar.vehicleMake}</Card.Text>
           <Card.Text>Vehicle Model: {displayCar.vehicleModel}</Card.Text>
            
-        <Button style={buttonStyle} variant="success" size="sm" type="submit" onClick={handleEdit}>Edit Details</Button>
+        <Button style={buttonStyle} variant="warning" size="sm" type="submit" onClick={handleEdit}>Edit Details</Button>
         &nbsp;&nbsp;
         <Button style={buttonStyle} variant="danger" size="sm" onClick={handleDelete}>Remove Car</Button>
         &nbsp;&nbsp;

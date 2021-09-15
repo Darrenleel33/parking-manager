@@ -48,7 +48,7 @@ function CarCards({cars, toggleEdit, setToggleEdit, handleEdit, handleDisplay })
 
   }
    const buttonStyle = {
-    left:"250px",
+    left:"220px",
     position: "absolute",
     fontFamily:"sinkin sans",
     fontWeight:"bold",
@@ -58,7 +58,7 @@ function CarCards({cars, toggleEdit, setToggleEdit, handleEdit, handleDisplay })
     return (
       <div style={style}>
   &nbsp;&nbsp;
-        <Card border="dark" style={{ width: '18rem'}} onClick={handleDisplayClick}>
+        <Card border="dark" style={{ width: '16rem'}} onClick={handleDisplayClick}>
           <Card.Header style={headerColor}>
                <Button style={buttonStyle} variant="danger" size="sm" onClick={handleDelete}>X</Button>
                Parked Car #{cars.id}

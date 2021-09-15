@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 
+import Card from 'react-bootstrap/Card'
 
 function AddCarForm() {
     
@@ -14,7 +15,14 @@ function AddCarForm() {
     const [licensePlate, setlicensePlate]=useState('')
     const [vehicleMake, setVehicleMake]=useState('')
     const [vehicleModel, setVehicleModel]=useState('')
-    const [showAdd, setShowAdd]=useState(null)
+
+    const [showAddCar, setShowAddCar]=useState(null)
+    const [showAddTicket, setShowAddTicket]=useState(null)
+
+    const [date, setDate]= useState()
+    const [hours, setHours]= useState()
+    const [days, setDays]= useState()
+    const [paid, setPaid]= useState()
     
    
 
@@ -25,14 +33,24 @@ function AddCarForm() {
        vehicleMake: vehicleMake,
        vehicleModel: vehicleModel
     }
-   
+    
+    const newTicketInfo = {
+       date:date,
+       hours:hours,
+       days:days,
+       paid: paid,
+    
+    }
  
-
-    function handleAlert(){
-      setShowAdd(true)
+    function handleCarAlert(){
+      setShowAddCar(true)
+    }
+    function handleTicketAlert(){
+      setShowAddTicket(true)
     }
 
-     function handleSubmit(e) {
+
+     function handleSubmitCar(e) {
        e.preventDefault()
        fetch(' /cars', {
            method: 'POST',
@@ -41,25 +59,91 @@ function AddCarForm() {
        })
        .then(res => res.json())
        .then(data => {console.log(data)})
-       .then(handleAlert())
+       .then(handleCarAlert())
       
    
       }
-   
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       
+      function handleSubmitTicket(e) {
+        e.preventDefault()
+        fetch(' /tickets', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newTicketInfo)
+        })
+        .then(res => res.json())
+        .then(data => {console.log(data)})
+        .then(handleTicketAlert())
+       
+    
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      const linkStyle = {
+        textAlign:"center",
+        fontFamily:"sinkin sans",
+        fontWeight:"bold",
+        fontSize:"18px",
+    };
+      const header={
+      
+        fontFamily:"sinkin sans",
+        fontWeight:"bold",
+        fontSize:"34px",
+      }
+      
+      const styleAlert={
+        fontSize: "15px",
+        fontFamily:"arial",
+      }
+
+
       
       return (
-        <div>
-
-<h3> Add a Car to the Parking Lot </h3>
-     
-
-     <Form>
+        <div style={linkStyle} >
+         <Form >
+      <h3 style={header}> Add a Car to the Parking Lot </h3>
+      {showAddCar? <Alert style={styleAlert} key="idx" variant="outline-success" onClick={e=>setShowAddCar(false)} >
+   A NEW CAR HAS BEEN ADDED !
+    </Alert>: ""}
+    
+    <br></br>
+    <br></br>
 
   <Form.Group as={Row} className="mb-3" controlId="formHorizontalOwner">
-    <Form.Label  column sm={2}> Owner Name </Form.Label>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <Form.Label column sm={2}> Owner Name </Form.Label>
     <Col sm={3}>
       <Form.Control 
          value={Owner}
@@ -68,11 +152,12 @@ function AddCarForm() {
          type="text"
          name="Car Owner"
          required
-        />
+         />
     </Col>
   </Form.Group>
 
   <Form.Group as={Row} className="mb-3" controlId="formHorizontalLicensePlate">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <Form.Label column sm={2} >License Plate</Form.Label>
     <Col sm={3}>
       <Form.Control 
@@ -87,6 +172,7 @@ function AddCarForm() {
   </Form.Group>
 
   <Form.Group as={Row} className="mb-3" controlId="formHorizontalColor">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <Form.Label column sm={2} > Car Color </Form.Label>
     <Col sm={3}>
       <Form.Control 
@@ -101,6 +187,7 @@ function AddCarForm() {
   </Form.Group>
 
   <Form.Group as={Row} className="mb-3" controlId="formHorizontalVehicleMake">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <Form.Label column sm={2}> Brand of the Car </Form.Label>
     <Col sm={3}>
       <Form.Control 
@@ -110,12 +197,13 @@ function AddCarForm() {
           type="text"
           name="Vehicle Make"
           required
-        />
+          />
     </Col>
   </Form.Group>
 
 
   <Form.Group as={Row} className="mb-3" controlId="formHorizontalVehicleMake">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <Form.Label 
       column sm={2}
       >
@@ -133,17 +221,123 @@ function AddCarForm() {
   </Form.Group>
 
 
-  <Form.Group as={Row} className="mb-3">
-    <Col sm={{ span: 10, offset: 2 }}>
-      <Button type="submit" onClick={handleSubmit}>Add New Car</Button>
-    </Col>
-  </Form.Group>
+      <Button type="submit" onClick={handleSubmitCar}>Add New Car</Button>
+  
 </Form>
 
-{showAdd? <Alert key="idx" variant="outline-success" onClick={e=>setShowAdd(false)} >
-    Added a New Car to the Parking Lot
-    </Alert>: ""}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Card>
+       <Form >
+
+        <br></br>
+        <h3 >Add a New Ticket</h3>
+        {showAddTicket? <Alert style={styleAlert} key="idx" variant="outline-success" onClick={e=>setShowAddTicket(false)} >
+   A NEW TICKET HAS BEEN ADDED !
+    </Alert>: ""}
+        <br></br>
+        <br></br>
+
+        <Form.Group as={Row} className="mb-3" controlId="formHorizontalLicensePlate">
+&nbsp;&nbsp;&nbsp;
+        <Form.Label column sm={4}> Purchase Date  </Form.Label>
+  
+        <Col sm={2}>
+    
+     <Form.Control 
+       value={date}
+       onChange={e => setDate(e.target.value)}
+       placeholder="Date"
+       type="date"
+       name="Date"
+       required
+      />
+  </Col>
+</Form.Group>
+
+
+
+
+<Form.Group as={Row} className="mb-3" controlId="formHorizontalHours">
+&nbsp;&nbsp;&nbsp;
+        <Form.Label column sm={4}> # of HOURS Parked </Form.Label>
+  
+        <Col sm={2}>
+    
+     <Form.Control 
+       value={hours}
+       onChange={e => setHours(e.target.value)}
+       placeholder="Hours"
+       type="number"
+       min="0"
+       name="Hours"
+       required
+      />
+  </Col>
+</Form.Group>
+
+
+
+<Form.Group as={Row} className="mb-3" controlId="formHorizontalDays">
+&nbsp;&nbsp;&nbsp;
+        <Form.Label column sm={4}> # of DAYS Parked  </Form.Label>
+  
+        <Col sm={2}>
+    
+     <Form.Control 
+       value={days}
+       onChange={e => setDays(e.target.value)}
+       placeholder="Days"
+       type="number"
+       min="0"
+       name="days"
+       required
+      />
+  </Col>
+</Form.Group>
+
+
+<Form.Label column sm={4}> Paid </Form.Label>
+      <Form.Check
+        inline
+        value={true}
+        label="Yes"
+        name="group1"
+        type="radio"
+        id={`inline-radio-1`}
+        />
+      <Form.Check
+        inline
+        value={false}
+        label="No"
+        name="group1"
+        type="radio"
+        id={`inline-radio-2`}
+        />
+        
+   
+
+
+
+
+<Button type="submit" onClick={handleSubmitTicket}>Add New Ticket</Button>
+
+</Form>
+</Card>
+
+        
     </div>
      
      );

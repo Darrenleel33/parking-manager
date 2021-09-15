@@ -72,7 +72,7 @@ function Home() {
     })
 
     
-
+   
 
     return (
 
@@ -110,7 +110,7 @@ function Home() {
         <br></br>
         <br></br>
         <br></br>
-        <br></br>s
+        <br></br>
         <br></br>
         <br></br>
         <br></br>

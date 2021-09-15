@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
+import TicketEditor from './TicketEditor'
 
 function CarEditor({cars, setCar, handleEdit, displayCar }) {
  const [id, setId]=useState(displayCar.id)
@@ -43,30 +44,36 @@ const style={
 backgroundColor:"lightBlue",
 backgroundPosition: "center",
 position:"absolute",
-height: "400px",
-width: "390px",
+height: "420px",
+width: "420px",
 top: "100px",
 fontFamily:"sinkin sans",
 fontWeight:"bold"
 }
 
 const text={
-  fontFamily:"sinkin sans",
+fontFamily:"sinkin sans",
 fontWeight:"bold",
-fontSize:"25px"
+fontSize:"18px",
+}
+const text2={
+fontFamily:"sinkin sans",
+fontWeight:"bold",
+fontSize:"25px",
 }
 
 return (
   
 <div>
+
 <Form style={style} >
 
 <br></br>
-<h4 style={text}>Edit Mode</h4>
-<br></br>
+<h3 style={text2}>Editing Mode</h3>
+
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalLicensePlate">
 &nbsp;&nbsp;&nbsp;
-  <Form.Label  column sm={4}> License Plate </Form.Label>
+  <Form.Label style={text} column sm={4}> License Plate </Form.Label>
   
   <Col sm={7}>
     
@@ -85,7 +92,7 @@ return (
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalOwner">
 &nbsp;&nbsp;&nbsp;
-  <Form.Label  column sm={4}> Owner Name </Form.Label>
+  <Form.Label  style={text} column sm={4}> Owner Name </Form.Label>
   <Col sm={7}>
     <Form.Control 
        value={Owner}
@@ -100,7 +107,7 @@ return (
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalColor">
 &nbsp;&nbsp;&nbsp;
-  <Form.Label  column sm={4}> Color </Form.Label>
+  <Form.Label style={text} column sm={4}> Color </Form.Label>
   <Col sm={5}>
     <Form.Control 
        value={color}
@@ -116,7 +123,7 @@ return (
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalVehicleMake">
 &nbsp;&nbsp;&nbsp;
-  <Form.Label  column sm={4}> Vehicle Make </Form.Label>
+  <Form.Label style={text} column sm={4}> Vehicle Make </Form.Label>
   <Col sm={5}>
     <Form.Control 
        value={vehicleMake}
@@ -131,7 +138,7 @@ return (
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalVehicleModel">
 &nbsp;&nbsp;&nbsp;
-  <Form.Label  column sm={4}> Vehicle Model </Form.Label>
+  <Form.Label style={text} column sm={4}> Vehicle Model </Form.Label>
   <Col sm={5}>
     <Form.Control 
        value={vehicleModel}
@@ -146,9 +153,9 @@ return (
 
 <Form.Group as={Row} className="mb-3">
     <Col sm={{ span: 10, offset: 2 }}>
-      <Button type="submit" variant="warning" onClick={handleSubmit}>Edit this Car</Button>
+      <Button style={text} type="submit" variant="warning" onClick={handleSubmit}>Edit  Car</Button>
       &nbsp;&nbsp;
-      <Button type="submit" variant="secondary" onClick={handleEdit}>Cancel</Button>
+      <Button style={text} type="submit" variant="secondary" onClick={handleEdit}>Cancel</Button>
     </Col>
     <Col sm={{ span: 10, offset: 2 }}>
     </Col>

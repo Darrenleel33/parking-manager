@@ -17,13 +17,14 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function App() {
  
+  
   const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
     color: 'white',
     fontsize: "large"
   };
-  
+
   return (
     <div>
    
