@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Alert from 'react-bootstrap/Button'
+
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
-import TicketEditor from './TicketEditor'
+
 
 function CarEditor({cars, setCar, handleEdit, displayCar }) {
  const [id, setId]=useState(displayCar.id)

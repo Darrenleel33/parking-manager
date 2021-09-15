@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
-function CarViewer({cars, handleEdit, handleDelete, id, displayCar}) {
+function CarViewer({cars, handleEdit, id, displayCar}) {
    
 
 
@@ -32,7 +32,7 @@ const style={
 
 
   const stick={
-    position: "-webkit-sticky",
+   
     position: "sticky",
     webkitTextStrokeWidth: "0.2px",
     webkitTextStrokeColor: "blue"

@@ -1,13 +1,12 @@
-import React, { useEffect , useState } from 'react'
-import CarEditor from './CarEditor'
-import CarViewer from './CarViewer'
+import React from 'react'
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Fade from 'react-bootstrap/Fade';
+
 
 function CarCards({cars, toggleEdit, setToggleEdit, handleEdit, handleDisplay }) {
     
-    const [open, setOpen] = useState(false);
+   
 
     function handleDisplayClick(){
         handleDisplay(cars.id)

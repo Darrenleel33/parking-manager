@@ -1,11 +1,11 @@
 
-import React, { useState } from 'react'
-import TicketEditor from './TicketEditor'
+import React from 'react'
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Col } from 'react-bootstrap';
 
-function TicketCards({ id, tickets, date, hours, car_id, paid, days, handleDelete, setTicketNumber, ticketNumber,setShowAlert}) {
+function TicketCards({ id, tickets, date, hours, car_id, paid, days, setTicketNumber, ticketNumber,setShowAlert}) {
 
 
 
@@ -36,7 +36,9 @@ function handleDelete(){
   fetch(` /tickets/${id}`, {
    method: "DELETE",
   })
+  
   // window.location.reload(false);  
+
 
 }
 

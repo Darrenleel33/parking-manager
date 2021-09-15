@@ -2,7 +2,7 @@
 import './App.css';
 import Home from './Home';
 import Tickets from './Tickets';
-import React, {useState} from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +12,7 @@ import {
 import AddCarForm from './AddCarForm';
 import Statistic from './Statistic';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Nav from 'react-bootstrap/Nav';
+
 import Navbar from 'react-bootstrap/Navbar';
 
 function App() {
