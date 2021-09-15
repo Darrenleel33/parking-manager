@@ -21,7 +21,7 @@ function TicketCards({ id, tickets, date, hours, car_id, paid, days, handleDelet
 const style={
 
 float:"left",
-width: '16rem',
+width: '20rem',
 margin: "5px",
 backgroundOpacity:"0.3"
 
@@ -36,26 +36,45 @@ function handleDelete(){
   fetch(` /tickets/${id}`, {
    method: "DELETE",
   })
-  // window.location.reload(false);  
+  window.location.reload(false);  
 
 }
 
+const styletext={
+  color:"blue",
+  fontSize:"20px",
+}
+
+
+const buttonStyle={
+  left:"280px",
+  position: "absolute",
+  fontFamily:"sinkin sans",
+  fontWeight:"bold",
+  fontSize:"10px"
+
+}
 
 
     return (
      <Col style={style} >
       
      <Card border="dark"  >
-        <Card.Header>Parking Receipts #{id} </Card.Header>
+        <Card.Header>
+        <Button style={buttonStyle} variant="danger" size="sm" onClick={handleDelete} >X</Button>
+          Date: {date} 
+          </Card.Header>
         <Card.Body>
             
-          <Card.Title>Date: {date} </Card.Title>
-          <Card.Text>Number of {hours} hours parked</Card.Text>
+          <Card.Text style={styletext}>Parked Car# {car_id} </Card.Text>
+          <Card.Text>Rate per Hour (Initial Entry $10 + $3/hour) </Card.Text>
+          <Card.Text>Number of {hours} hours parked </Card.Text>
+          <Card.Text>Rate per Day (Initial Entry $35/hour) </Card.Text>
           <Card.Text>Number of {days} days parked</Card.Text>
           <Card.Text>Paid:{paid?"Yes":"No"}</Card.Text>
+          <Card.Text>Amount Due:{(paid===true)?  <div>&nbsp;$0</div>:  <div>$ {10+(3*hours)+(35*days)}</div> }</Card.Text>
            
 
-        <Button variant="outline-danger" size="sm" onClick={handleDelete} >Delete</Button>
     
         </Card.Body>
       </Card>

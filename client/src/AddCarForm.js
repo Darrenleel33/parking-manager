@@ -19,10 +19,12 @@ function AddCarForm() {
     const [showAddCar, setShowAddCar]=useState(null)
     const [showAddTicket, setShowAddTicket]=useState(null)
 
-    const [date, setDate]= useState()
-    const [hours, setHours]= useState()
-    const [days, setDays]= useState()
-    const [paid, setPaid]= useState()
+    const [carNumber, setCarNumber]= useState("")
+    const [price, setPrice]= useState("1")
+    const [date, setDate]= useState("")
+    const [hours, setHours]= useState("")
+    const [days, setDays]= useState("")
+    const [paid, setPaid]= useState(null)
     
    
 
@@ -34,51 +36,45 @@ function AddCarForm() {
        vehicleModel: vehicleModel
     }
     
-    const newTicketInfo = {
-       date:date,
-       hours:hours,
-       days:days,
-       paid: paid,
     
-    }
- 
     function handleCarAlert(){
       setShowAddCar(true)
     }
+    
+    
+    function handleSubmitCar(e) {
+      e.preventDefault()
+      fetch(' /cars', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newCarInfo)
+      })
+      .then(res => res.json())
+      .then(data => {console.log(data)})
+      .then(handleCarAlert())
+      
+      
+    }
+    
+    
+    
+    
+    
+    const newTicketInfo = {
+      car_id:carNumber,
+      price_id:price,
+      date:date,
+      hours:hours,
+      days:days,
+      paid: paid,
+      
+    }
+    
+    
     function handleTicketAlert(){
       setShowAddTicket(true)
     }
-
-
-     function handleSubmitCar(e) {
-       e.preventDefault()
-       fetch(' /cars', {
-           method: 'POST',
-           headers: {'Content-Type': 'application/json'},
-           body: JSON.stringify(newCarInfo)
-       })
-       .then(res => res.json())
-       .then(data => {console.log(data)})
-       .then(handleCarAlert())
-      
-   
-      }
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
       
       function handleSubmitTicket(e) {
         e.preventDefault()
@@ -111,6 +107,7 @@ function AddCarForm() {
 
 
       const linkStyle = {
+        top:"200px",
         textAlign:"center",
         fontFamily:"sinkin sans",
         fontWeight:"bold",
@@ -136,6 +133,7 @@ function AddCarForm() {
       
       return (
         <div style={linkStyle} >
+  
          <Form >
     <br></br>
     <br></br>
@@ -161,6 +159,8 @@ function AddCarForm() {
          />
     </Col>
   </Form.Group>
+
+
 
   <Form.Group as={Row} className="mb-3" controlId="formHorizontalLicensePlate">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -228,11 +228,12 @@ function AddCarForm() {
 
 
       <Button type="submit" onClick={handleSubmitCar}>Add New Car</Button>
-      <br></br>
-      <br></br>
-      <br></br>
   
 </Form>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
 
 
 
@@ -276,6 +277,25 @@ function AddCarForm() {
       />
   </Col>
 </Form.Group>
+
+<Form.Group as={Row} className="mb-3" controlId="formHorizontalOwner">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <Form.Label column sm={2}> Parked Car # </Form.Label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <Col sm={1}>
+      
+      <Form.Control 
+         value={carNumber}
+         onChange={e => setCarNumber(e.target.value)}
+         placeholder="Parked Car#"
+         type="number"
+         min="0"
+         name="Parked Car"
+         required
+         />
+    </Col>
+  </Form.Group>
+
 
 
 
@@ -325,6 +345,7 @@ function AddCarForm() {
       <Form.Check
         inline
         value={true}
+        onChange={e => setPaid(e.target.value)}
         label="Yes"
         name="group1"
         type="radio"
@@ -333,20 +354,25 @@ function AddCarForm() {
       <Form.Check
         inline
         value={false}
+        onChange={e => setPaid(e.target.value)}
         label="No"
         name="group1"
         type="radio"
         id={`inline-radio-2`}
         />
-        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </Form.Group>
 
-
-
+      <br></br>
+      <br></br>
 
 <Button type="submit" onClick={handleSubmitTicket}>Add New Ticket</Button>
 
 </Form>
+<br></br>
+      <br></br>
+      <br></br>
+      <br></br>
 </Card>
 
         

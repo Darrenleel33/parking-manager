@@ -40,7 +40,7 @@ class TicketsController < ApplicationController
     end
 
     def ticket_params
-        params.permit(:date, :hours, :days, :paid )
+        params.permit(:car_id, :price_id, :date, :hours, :days, :paid )
     end
 
 
