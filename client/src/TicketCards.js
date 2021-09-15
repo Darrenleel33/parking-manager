@@ -36,7 +36,7 @@ function handleDelete(){
   fetch(` /tickets/${id}`, {
    method: "DELETE",
   })
-  window.location.reload(false);  
+  // window.location.reload(false);  
 
 }
 
@@ -69,7 +69,7 @@ const buttonStyle={
           <Card.Text style={styletext}>Parked Car# {car_id} </Card.Text>
           <Card.Text>Rate per Hour (Initial Entry $10 + $3/hour) </Card.Text>
           <Card.Text>Number of {hours} hours parked </Card.Text>
-          <Card.Text>Rate per Day (Initial Entry $35/hour) </Card.Text>
+          <Card.Text>Rate per Day (Initial Entry $35/day) </Card.Text>
           <Card.Text>Number of {days} days parked</Card.Text>
           <Card.Text>Paid:{paid?"Yes":"No"}</Card.Text>
           <Card.Text>Amount Due:{(paid===true)?  <div>&nbsp;$0</div>:  <div>$ {10+(3*hours)+(35*days)}</div> }</Card.Text>
