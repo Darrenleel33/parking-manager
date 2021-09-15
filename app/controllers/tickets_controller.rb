@@ -15,7 +15,7 @@ class TicketsController < ApplicationController
     end
 
     def show
-        ticket = Ticket.find_by(id: params[:id])
+        ticket = find_ticket
             if ticket
                 render json: ticket
             else
@@ -24,13 +24,23 @@ class TicketsController < ApplicationController
     end
 
     def destroy
-        ticket = Ticket.find_by(id: params[:id])
+        ticket = find_ticket
         if ticket
             ticket.destroy
             render json: "ticket removed"
         else
             render json: { error: "ticket is not found"}, status: :not_found
         end
+    end
+
+    private
+
+    def find_ticket
+        Ticket.find_by(id: params[:id])
+    end
+
+    def ticket_params
+        params.permit(:date, :hours, :days, :paid )
     end
 
 

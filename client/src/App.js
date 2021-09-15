@@ -22,7 +22,8 @@ function App() {
     margin: "1rem",
     textDecoration: "none",
     color: 'white',
-    fontsize: "large"
+    fontsize: "large",
+
   };
 
   return (
@@ -45,7 +46,7 @@ function App() {
           
               <Link style={linkStyle} to="/tickets">List of Tickets</Link>
            
-              <Link style={linkStyle} to="/stats">Statistic</Link>
+              {/* <Link style={linkStyle} to="/stats">Statistic</Link> */}
      </Navbar>
             
         

@@ -27,18 +27,23 @@ const style={
   top: "20px",
   fontFamily:"sinkin sans",
   fontSize: "25px"
+  
   }
 
 
   const stick={
     position: "-webkit-sticky",
-    position: "sticky"
+    position: "sticky",
+    webkitTextStrokeWidth: "0.2px",
+    webkitTextStrokeColor: "blue"
   }
   const buttonStyle={
     
     fontFamily:"sinkin sans",
     fontWeight:'bold',
-    fontSize: "16px"
+    fontSize: "18px",
+    webkitTextStrokeWidth: "0.7px",
+        webkitTextStrokeColor: "black"
   }
 
 const bodyStyle={
@@ -62,7 +67,7 @@ const bodyStyle={
         &nbsp;&nbsp;
         <Button style={buttonStyle} variant="danger" size="sm" onClick={handleDelete}>Remove Car</Button>
         &nbsp;&nbsp;
-        <Button style={buttonStyle} variant="primary" size="sm">ticket Info</Button>
+        {/* <Button style={buttonStyle} variant="primary" size="sm">ticket Info</Button> */}
         </Card.Body>
       </Card>
         </div>

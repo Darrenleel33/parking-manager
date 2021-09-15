@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Col } from 'react-bootstrap';
 
-function TicketCards({ id, tickets, date, hours, car_id, paid, days}) {
+function TicketCards({ id, tickets, date, hours, car_id, paid, days, handleDelete, setTicketNumber, ticketNumber,setShowAlert}) {
 
 
 
@@ -27,7 +27,18 @@ backgroundOpacity:"0.3"
 
 }
 
+function handleDelete(){
+  console.log("delete", tickets.id)
+  const id = tickets.id
+  setTicketNumber(id)
+  setShowAlert(true)
 
+  fetch(` /tickets/${id}`, {
+   method: "DELETE",
+  })
+  // window.location.reload(false);  
+
+}
 
 
 
@@ -44,7 +55,7 @@ backgroundOpacity:"0.3"
           <Card.Text>Paid:{paid?"Yes":"No"}</Card.Text>
            
 
-        <Button variant="outline-danger" size="sm" >Delete (not working)</Button>
+        <Button variant="outline-danger" size="sm" onClick={handleDelete} >Delete</Button>
     
         </Card.Body>
       </Card>

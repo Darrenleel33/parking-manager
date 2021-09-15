@@ -129,10 +129,16 @@ function AddCarForm() {
       }
 
 
+      const addTicketStyle={
+        left: "100px"
+      }
+
       
       return (
         <div style={linkStyle} >
          <Form >
+    <br></br>
+    <br></br>
       <h3 style={header}> Add a Car to the Parking Lot </h3>
       {showAddCar? <Alert style={styleAlert} key="idx" variant="outline-success" onClick={e=>setShowAddCar(false)} >
    A NEW CAR HAS BEEN ADDED !
@@ -222,6 +228,9 @@ function AddCarForm() {
 
 
       <Button type="submit" onClick={handleSubmitCar}>Add New Car</Button>
+      <br></br>
+      <br></br>
+      <br></br>
   
 </Form>
 
@@ -243,7 +252,8 @@ function AddCarForm() {
        <Form >
 
         <br></br>
-        <h3 >Add a New Ticket</h3>
+        <br></br>
+        <h3 style={header} >Add a New Ticket</h3>
         {showAddTicket? <Alert style={styleAlert} key="idx" variant="outline-success" onClick={e=>setShowAddTicket(false)} >
    A NEW TICKET HAS BEEN ADDED !
     </Alert>: ""}
@@ -251,7 +261,7 @@ function AddCarForm() {
         <br></br>
 
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalLicensePlate">
-&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Form.Label column sm={4}> Purchase Date  </Form.Label>
   
         <Col sm={2}>
@@ -271,7 +281,7 @@ function AddCarForm() {
 
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalHours">
-&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Form.Label column sm={4}> # of HOURS Parked </Form.Label>
   
         <Col sm={2}>
@@ -291,10 +301,10 @@ function AddCarForm() {
 
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalDays">
-&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Form.Label column sm={4}> # of DAYS Parked  </Form.Label>
   
-        <Col sm={2}>
+      <Col sm={2}>
     
      <Form.Control 
        value={days}
@@ -309,7 +319,9 @@ function AddCarForm() {
 </Form.Group>
 
 
-<Form.Label column sm={4}> Paid </Form.Label>
+
+  <Form.Group style={addTicketStyle} >
+<Form.Label column sm={4}> Paid ?</Form.Label>
       <Form.Check
         inline
         value={true}
@@ -327,7 +339,7 @@ function AddCarForm() {
         id={`inline-radio-2`}
         />
         
-   
+        </Form.Group>
 
 
 

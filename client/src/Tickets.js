@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import TicketCards from './TicketCards'
 import TicketEditor from './TicketEditor'
+import Alert from 'react-bootstrap/button'
 
 
 function Tickets() {
 
     const [tickets, setTickets] = useState([])
-
+    const [ticketNumber, setTicketNumber]=useState("")
+    const [showAlert, setShowAlert]=useState(false)
  
 
 
@@ -18,10 +20,21 @@ function Tickets() {
         })
       }, [])
 
+
+
+
+
+
+
       const ticketArray = tickets.map((tickets) => {
         return  <TicketCards 
         key={tickets.id}
+        tickets={tickets}
         {...tickets}
+        ticketNumber={ticketNumber}
+        setTicketNumber={setTicketNumber}
+        showAlert={showAlert}
+        setShowAlert={setShowAlert}
    
     />
       })
@@ -49,16 +62,19 @@ function Tickets() {
         webkitTextStrokeColor: "white"
     }
 
-
+  
 
   return (
-      <div style={linkStyle}>
-        
+    <div style={linkStyle}>
+           
     <br></br>
     <br></br>
     <br></br>
     <br></br>
             <h3 style={head} >Parking Receipt Log</h3>         
+        {showAlert? <Alert  key="idx" variant="danger" onClick={e=>setShowAlert(false)} >
+       TICKET# {ticketNumber}  HAS BEEN DELETED !
+        </Alert>: ""}
     <br></br>
     <br></br>
     
