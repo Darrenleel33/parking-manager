@@ -27,25 +27,52 @@ function CarCards({cars, toggleEdit, setToggleEdit, handleEdit, handleDisplay })
       
     }
     
-   
+    const headerColor={
+      backgroundColor:"lightBlue",
+      fontFamily:"sinkin sans",
+      fontWeight:"bold",
+      fontSize:"20px"
+    }
 
+   const text ={
+    fontFamily:"sinkin sans",
+    fontWeight:"bold",
+    fontSize:"20px",
+    
+   }
+
+   
+   const style = {
+    margin: "5px",
+    float: "left",
+
+  }
+   const buttonStyle = {
+    left:"250px",
+    position: "absolute",
+    fontFamily:"sinkin sans",
+    fontWeight:"bold",
+    fontSize:"10px"
+
+  }
     return (
-      <div>
+      <div style={style}>
   &nbsp;&nbsp;
         <Card border="dark" style={{ width: '18rem'}} onClick={handleDisplayClick}>
-        <Card.Header>Parked car </Card.Header>
+          <Card.Header style={headerColor}>
+               <Button style={buttonStyle} variant="danger" size="sm" onClick={handleDelete}>X</Button>
+               Parked Car #{cars.id}
+           </Card.Header>
         <Card.Body>
             
-          <Card.Title>License Plate: {cars.licensePlate}</Card.Title>
-          <Card.Title>Owner: {cars.Owner}</Card.Title>
+          <Card.Title style={text}>License Plate: {cars.licensePlate}</Card.Title>
+          <Card.Title style={text}>Owner: {cars.Owner}</Card.Title>
           <Card.Text>Color: {cars.color}</Card.Text>
           <Card.Text>Vehicle Make: {cars.vehicleMake}</Card.Text>
           <Card.Text>Vehicle Model: {cars.vehicleModel}</Card.Text>
            
       
-        <Button variant="outline-danger" size="sm" onClick={handleDelete}>Delete</Button>
-        &nbsp;&nbsp;
-        <Button variant="outline-primary" size="sm">ticket Info</Button>
+
         </Card.Body>
       </Card>
     

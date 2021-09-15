@@ -23,7 +23,12 @@ function Home() {
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
-      };
+        fontFamily:"sinkin sans",
+        fontWeight:"bold",
+        fontSize:"15px",
+    };
+
+    
 
 
     function handleEdit(){
@@ -73,19 +78,8 @@ function Home() {
 
         
         <Container fluid="md" style={linkStyle} >
-        
-        
-        
-    <Row>
-        
-        <Col >
-            <Sidebar 
-                contentDisplay={contentDisplay}
-                handleDisplay={handleDisplay}
-             
-                />
-        </Col>
     
+        <Row>
         <Col xs={8} md={8}>
             <Content 
                 contentDisplay={contentDisplay} 
@@ -100,7 +94,42 @@ function Home() {
                 
                 />
         </Col>
-    </Row>  
+        </Row> 
+        
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>s
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+    <Row>
+        
+        <Col >
+            <Sidebar 
+                contentDisplay={contentDisplay}
+                handleDisplay={handleDisplay}
+             
+                />
+        </Col>
+    </Row>
+ 
         
       </Container>
     )

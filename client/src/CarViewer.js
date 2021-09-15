@@ -18,32 +18,51 @@ function handleDelete(){
   
 }
 
+const style={
+  backgroundColor:"lightBlue",
+  backgroundPosition: "center",
+  position:"absolute",
+  height: "400px",
+  width: "390px",
+  top: "20px",
+  fontFamily:"sinkin sans",
+  fontSize: "25px"
+  }
 
 
+  const stick={
+    position: "-webkit-sticky",
+    position: "sticky"
+  }
+  const buttonStyle={
+    
+    fontFamily:"sinkin sans",
+    fontWeight:'bold',
+    fontSize: "16px"
+  }
 
-
-
-
+const bodyStyle={
+  backgroundColor:"lightBlue"
+}
 
     return (
         
-        <div>
+        <div style={stick}>
         &nbsp;&nbsp;
-        <Card bg="secondary" text="white" style={{ width: '20rem'}} >
-        <Card.Header >CURRENT CAR </Card.Header>
-        <Card.Body>
-            
-          <Card.Title>License Plate: {displayCar.licensePlate}</Card.Title>
-          <Card.Title>Owner: {displayCar.Owner}</Card.Title>
+        <Card bg="primary" style={style} >
+        <Card.Header text="white">CURRENT CAR </Card.Header>
+        <Card.Body style={bodyStyle}>
+          <Card.Text>License Plate: {displayCar.licensePlate}</Card.Text>
+          <Card.Text>Owner: {displayCar.Owner}</Card.Text>
           <Card.Text>Color: {displayCar.color}</Card.Text>
           <Card.Text>Vehicle Make: {displayCar.vehicleMake}</Card.Text>
           <Card.Text>Vehicle Model: {displayCar.vehicleModel}</Card.Text>
            
-        <Button variant="success" size="sm" type="submit" onClick={handleEdit}>Edit Details</Button>
+        <Button style={buttonStyle} variant="success" size="sm" type="submit" onClick={handleEdit}>Edit Details</Button>
         &nbsp;&nbsp;
-        <Button variant="danger" size="sm" onClick={handleDelete}>Remove Car</Button>
+        <Button style={buttonStyle} variant="danger" size="sm" onClick={handleDelete}>Remove Car</Button>
         &nbsp;&nbsp;
-        <Button variant="primary" size="sm">ticket Info</Button>
+        <Button style={buttonStyle} variant="primary" size="sm">ticket Info</Button>
         </Card.Body>
       </Card>
         </div>

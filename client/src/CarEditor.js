@@ -39,21 +39,37 @@ function CarEditor({cars, setCar, handleEdit, displayCar }) {
     // console.log(username)
     // console.log(password)
 }
+const style={
+backgroundColor:"lightBlue",
+backgroundPosition: "center",
+position:"absolute",
+height: "400px",
+width: "390px",
+top: "100px",
+fontFamily:"sinkin sans",
+fontWeight:"bold"
+}
 
-
-
+const text={
+  fontFamily:"sinkin sans",
+fontWeight:"bold",
+fontSize:"25px"
+}
 
 return (
   
 <div>
-  <br></br>
-  <br></br>
-<Form>
+<Form style={style} >
 
-
+<br></br>
+<h4 style={text}>Edit Mode</h4>
+<br></br>
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalLicensePlate">
-  <Form.Label  column sm={2}> License Plate </Form.Label>
-  <Col sm={3}>
+&nbsp;&nbsp;&nbsp;
+  <Form.Label  column sm={4}> License Plate </Form.Label>
+  
+  <Col sm={7}>
+    
     <Form.Control 
        value={licensePlate}
        onChange={e => setLicensePlate(e.target.value)}
@@ -68,8 +84,9 @@ return (
 
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalOwner">
-  <Form.Label  column sm={2}> Owner Name </Form.Label>
-  <Col sm={3}>
+&nbsp;&nbsp;&nbsp;
+  <Form.Label  column sm={4}> Owner Name </Form.Label>
+  <Col sm={7}>
     <Form.Control 
        value={Owner}
        onChange={e => setOwner(e.target.value)}
@@ -82,12 +99,13 @@ return (
 </Form.Group>
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalColor">
-  <Form.Label  column sm={2}> Color </Form.Label>
-  <Col sm={3}>
+&nbsp;&nbsp;&nbsp;
+  <Form.Label  column sm={4}> Color </Form.Label>
+  <Col sm={5}>
     <Form.Control 
        value={color}
        onChange={e => setColor(e.target.value)}
-       placeholder="color"
+       placeholder="Color"
        type="text"
        name="color"
        required
@@ -97,8 +115,9 @@ return (
 
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalVehicleMake">
-  <Form.Label  column sm={2}> Vehicle Make </Form.Label>
-  <Col sm={3}>
+&nbsp;&nbsp;&nbsp;
+  <Form.Label  column sm={4}> Vehicle Make </Form.Label>
+  <Col sm={5}>
     <Form.Control 
        value={vehicleMake}
        onChange={e => setVehicleMake(e.target.value)}
@@ -111,8 +130,9 @@ return (
 </Form.Group>
 
 <Form.Group as={Row} className="mb-3" controlId="formHorizontalVehicleModel">
-  <Form.Label  column sm={2}> Vehicle Model </Form.Label>
-  <Col sm={3}>
+&nbsp;&nbsp;&nbsp;
+  <Form.Label  column sm={4}> Vehicle Model </Form.Label>
+  <Col sm={5}>
     <Form.Control 
        value={vehicleModel}
        onChange={e => setVehicleModel(e.target.value)}
