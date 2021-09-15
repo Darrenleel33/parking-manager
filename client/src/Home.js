@@ -15,7 +15,15 @@ function Home() {
     const [toggleEdit,setToggleEdit]=useState(false)
     const [displayCar,setDisplayCar]=useState({})
 
-  
+    const linkStyle = {
+        textAlign: "center",
+        backgroundImage: `url(${process.env.PUBLIC_URL + "/aerialParking.png"})`,
+        minWidth: "100%",
+        minHeight: "100%",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+      };
 
 
     function handleEdit(){
@@ -64,7 +72,7 @@ function Home() {
     return (
 
         
-        <Container fluid="md">
+        <Container fluid="md" style={linkStyle} >
         
         
         
